@@ -34,8 +34,13 @@ export function createPaymentMethodSelectorFactory(): PaymentMethodSelectorFacto
         (state: PaymentMethodState) => state.data,
         paymentMethods => (methodId: string, gatewayId?: string) => {
             return gatewayId ?
-                find(paymentMethods, { id: methodId, gateway: gatewayId }) :
-                find(paymentMethods, { id: methodId });
+                find(paymentMethods, paymentMethod => {
+                    return paymentMethod.id.toLowerCase() === methodId
+                        && paymentMethod.gateway === gatewayId;
+                }) :
+                find(paymentMethods, paymentMethod => {
+                    return paymentMethod.id.toLowerCase() === methodId;
+                });
         }
     );
 
