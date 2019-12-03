@@ -37,13 +37,13 @@ describe('PaymentMethodSelector', () => {
         it('returns payment method if found', () => {
             paymentMethodSelector = createPaymentMethodSelector(state.paymentMethods);
 
-            expect(paymentMethodSelector.getPaymentMethod('braintree')).toEqual(getBraintree());
+            expect(paymentMethodSelector.getPaymentMethod('brainTree')).toEqual(getBraintree());
         });
 
         it('returns multi-option payment method if found', () => {
             paymentMethodSelector = createPaymentMethodSelector(state.paymentMethods);
 
-            expect(paymentMethodSelector.getPaymentMethod('amex', 'adyen')).toEqual(getAdyenAmex());
+            expect(paymentMethodSelector.getPaymentMethod('amEx', 'adyen')).toEqual(getAdyenAmex());
         });
 
         it('returns nothing if payment method is not found', () => {

@@ -99,7 +99,7 @@ export function getPaypal(): PaymentMethod {
 
 export function getAdyenAmex(): PaymentMethod {
     return {
-        id: 'amex',
+        id: 'amEx',
         gateway: 'adyen',
         logoUrl: '',
         method: 'multi-option',
